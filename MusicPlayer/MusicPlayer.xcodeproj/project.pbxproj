@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		E7D22E27281420E10066D86C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D22E25281420E10066D86C /* LaunchScreen.storyboard */; };
 		E7D22E30281430A80066D86C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D22E2F281430A80066D86C /* MainTabBarController.swift */; };
 		E7D22E332814337D0066D86C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D22E322814337D0066D86C /* SearchViewController.swift */; };
+		E7D22E37281468140066D86C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E7D22E36281468140066D86C /* Alamofire */; };
+		E7D22E3A28146D3D0066D86C /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D22E3928146D3D0066D86C /* SearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		E7D22E28281420E10066D86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D22E2F281430A80066D86C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E7D22E322814337D0066D86C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E7D22E3928146D3D0066D86C /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D22E37281468140066D86C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +73,7 @@
 				E7D22E28281420E10066D86C /* Info.plist */,
 				E7D22E2F281430A80066D86C /* MainTabBarController.swift */,
 				E7D22E322814337D0066D86C /* SearchViewController.swift */,
+				E7D22E3928146D3D0066D86C /* SearchResponse.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -89,6 +94,9 @@
 			dependencies = (
 			);
 			name = MusicPlayer;
+			packageProductDependencies = (
+				E7D22E36281468140066D86C /* Alamofire */,
+			);
 			productName = MusicPlayer;
 			productReference = E7D22E17281420DB0066D86C /* MusicPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +124,9 @@
 				Base,
 			);
 			mainGroup = E7D22E0E281420DB0066D86C;
+			packageReferences = (
+				E7D22E35281468140066D86C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E7D22E18281420DB0066D86C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,6 +156,7 @@
 			files = (
 				E7D22E332814337D0066D86C /* SearchViewController.swift in Sources */,
 				E7D22E1F281420DB0066D86C /* ViewController.swift in Sources */,
+				E7D22E3A28146D3D0066D86C /* SearchResponse.swift in Sources */,
 				E7D22E1B281420DB0066D86C /* AppDelegate.swift in Sources */,
 				E7D22E30281430A80066D86C /* MainTabBarController.swift in Sources */,
 				E7D22E1D281420DB0066D86C /* SceneDelegate.swift in Sources */,
@@ -349,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E7D22E35281468140066D86C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E7D22E36281468140066D86C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7D22E35281468140066D86C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E7D22E0F281420DB0066D86C /* Project object */;
 }
