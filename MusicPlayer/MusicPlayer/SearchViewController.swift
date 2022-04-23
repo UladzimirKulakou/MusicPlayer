@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  MusicPlayer
 //
 //  Created by Владимир  on 23.04.22.
@@ -7,18 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class SearchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         
         view.backgroundColor = .white
-        
-        
     }
-
-
 }
-

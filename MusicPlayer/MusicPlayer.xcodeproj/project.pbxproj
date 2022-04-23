@@ -13,6 +13,8 @@
 		E7D22E22281420DB0066D86C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D22E20281420DB0066D86C /* Main.storyboard */; };
 		E7D22E24281420E10066D86C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D22E23281420E10066D86C /* Assets.xcassets */; };
 		E7D22E27281420E10066D86C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D22E25281420E10066D86C /* LaunchScreen.storyboard */; };
+		E7D22E30281430A80066D86C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D22E2F281430A80066D86C /* MainTabBarController.swift */; };
+		E7D22E332814337D0066D86C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D22E322814337D0066D86C /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E7D22E23281420E10066D86C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7D22E26281420E10066D86C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7D22E28281420E10066D86C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7D22E2F281430A80066D86C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E7D22E322814337D0066D86C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				E7D22E23281420E10066D86C /* Assets.xcassets */,
 				E7D22E25281420E10066D86C /* LaunchScreen.storyboard */,
 				E7D22E28281420E10066D86C /* Info.plist */,
+				E7D22E2F281430A80066D86C /* MainTabBarController.swift */,
+				E7D22E322814337D0066D86C /* SearchViewController.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D22E332814337D0066D86C /* SearchViewController.swift in Sources */,
 				E7D22E1F281420DB0066D86C /* ViewController.swift in Sources */,
 				E7D22E1B281420DB0066D86C /* AppDelegate.swift in Sources */,
+				E7D22E30281430A80066D86C /* MainTabBarController.swift in Sources */,
 				E7D22E1D281420DB0066D86C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
