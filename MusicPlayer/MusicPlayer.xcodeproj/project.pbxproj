@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7361A382821312B0044F66E /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7361A372821312B0044F66E /* TrackDetailView.xib */; };
+		E7361A3B282131480044F66E /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361A3A282131480044F66E /* TrackDetailView.swift */; };
 		E7CE91372818674D00877850 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE91362818674D00877850 /* NetworkService.swift */; };
 		E7D1E4E4281ECCBF0070F072 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D1E4DD281ECCBF0070F072 /* SearchPresenter.swift */; };
 		E7D1E4E5281ECCBF0070F072 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D1E4DE281ECCBF0070F072 /* SearchWorker.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E7361A372821312B0044F66E /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		E7361A3A282131480044F66E /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		E7CE91362818674D00877850 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E7D1E4DD281ECCBF0070F072 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		E7D1E4DE281ECCBF0070F072 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
@@ -73,9 +77,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7361A36282130E20044F66E /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E7361A372821312B0044F66E /* TrackDetailView.xib */,
+				E7361A3A282131480044F66E /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
+			sourceTree = "<group>";
+		};
 		E7D1E4C9281ECAEB0070F072 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E7361A36282130E20044F66E /* TrackDetailView */,
 				E7D1E505281F097B0070F072 /* FooterView */,
 				E7D1E4F6281EF5100070F072 /* Cell */,
 				E7D1E4EC281ECDDA0070F072 /* SearchViewController.storyboard */,
@@ -236,6 +250,7 @@
 				E7D1E4F8281EF5290070F072 /* TrackCell.xib in Resources */,
 				E7D22E24281420E10066D86C /* Assets.xcassets in Resources */,
 				E7D1E4ED281ECDDA0070F072 /* SearchViewController.storyboard in Resources */,
+				E7361A382821312B0044F66E /* TrackDetailView.xib in Resources */,
 				E7D22E22281420DB0066D86C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +277,7 @@
 				E7D22E1D281420DB0066D86C /* SceneDelegate.swift in Sources */,
 				E7D1E4E4281ECCBF0070F072 /* SearchPresenter.swift in Sources */,
 				E7CE91372818674D00877850 /* NetworkService.swift in Sources */,
+				E7361A3B282131480044F66E /* TrackDetailView.swift in Sources */,
 				E7D1E4F2281ED1AA0070F072 /* UIViewController+Storyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
