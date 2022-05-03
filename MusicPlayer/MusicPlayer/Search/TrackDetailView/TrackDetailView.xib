@@ -38,6 +38,7 @@
                             <subviews>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rPd-Ko-Uf8">
                                     <rect key="frame" x="-2" y="0.0" width="334" height="31"/>
+                                    <color key="tintColor" red="0.56073135139999997" green="0.56866109369999995" blue="0.59208381180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="w7n-n2-gef"/>
                                     </constraints>
@@ -134,6 +135,7 @@
                                 </imageView>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1EK-TJ-1aT">
                                     <rect key="frame" x="25" y="0.0" width="280" height="18"/>
+                                    <color key="tintColor" red="0.56073135139999997" green="0.56866109369999995" blue="0.59208381180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="handelVolumeSlider:" destination="ItF-FU-oEG" eventType="valueChanged" id="xKb-ST-cwl"/>
                                     </connections>

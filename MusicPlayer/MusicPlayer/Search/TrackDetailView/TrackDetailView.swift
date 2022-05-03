@@ -9,6 +9,15 @@ import UIKit
 import SDWebImage
 import AVKit
 
+
+
+
+protocol TrackMovingDelegate: class {
+    func moveBackForPreviousTrack() -> SearchViewModel.Cell?
+    func moveForwardForNextTrack() -> SearchViewModel.Cell?
+}
+
+    
 class TrackDetailView: UIView {
 
     @IBOutlet weak var trackImageView: UIImageView!
@@ -28,6 +37,12 @@ class TrackDetailView: UIView {
         avPlayer.automaticallyWaitsToMinimizeStalling = false
         return avPlayer
     }()
+    
+    weak var delegate: TrackMovingDelegate?
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
+    
+    
+    
     // MARK: - awakeFromNib
 
     override func awakeFromNib() {
@@ -111,7 +126,9 @@ class TrackDetailView: UIView {
     // MARK: - @IBActions
     
     @IBAction func dragDownButtonTapped(_ sender: Any) {
-        self.removeFromSuperview()
+        
+        self.tabBarDelegate?.minimiseTrackDetailController()
+//        self.removeFromSuperview()
     }
     @IBAction func handelCurrentTimerSlider(_ sender: Any) {
         let percentage = currentTimeSlider.value
@@ -126,8 +143,15 @@ class TrackDetailView: UIView {
         player.volume = volumeSlider.value
     }
     @IBAction func previosTrack(_ sender: Any) {
+        let cellViewModel = delegate?.moveBackForPreviousTrack()
+        guard let cellInfo = cellViewModel else { return }
+        self.set(viewModel: cellInfo)
     }
+    
     @IBAction func nextTrack(_ sender: Any) {
+        let cellViewModel = delegate?.moveForwardForNextTrack()
+        guard let cellInfo = cellViewModel else { return }
+        self.set(viewModel: cellInfo)
     }
     @IBAction func playPauseAction(_ sender: Any) {
         if player.timeControlStatus == .paused {
