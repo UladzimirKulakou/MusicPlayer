@@ -124,6 +124,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         print("cellViewModel.trackName: ", cellViewModel.trackName)
         let window = UIApplication.shared.keyWindow
         let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as! TrackDetailView
+        trackDetailsView.set(viewModel: cellViewModel)
         window?.addSubview(trackDetailsView)
         
     }
