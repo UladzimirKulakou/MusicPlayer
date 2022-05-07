@@ -41,18 +41,29 @@
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPQ-Ea-ZZ1">
+                        <rect key="frame" x="374" y="34" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                        <color key="tintColor" red="0.98433822390000003" green="0.1764878929" blue="0.33332207800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="Add"/>
+                        <connections>
+                            <action selector="addTrackAction:" destination="eSp-7l-dee" eventType="touchUpInside" id="Nvy-2E-q2W"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="addTrackOutlet" destination="sPQ-Ea-ZZ1" id="yjR-wt-661"/>
                 <outlet property="artistNameLabel" destination="LM1-NZ-cC6" id="8qj-2P-Hjv"/>
                 <outlet property="collectionNameLabel" destination="ikv-an-d7R" id="6mr-dr-OMb"/>
                 <outlet property="trackImageView" destination="96b-bZ-yt0" id="jv1-DB-cAb"/>
                 <outlet property="trackNameLabel" destination="295-8a-cd6" id="w51-t5-Pqh"/>
             </connections>
-            <point key="canvasLocation" x="142.02898550724638" y="85.714285714285708"/>
+            <point key="canvasLocation" x="-223" y="48"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Add" width="16" height="16"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

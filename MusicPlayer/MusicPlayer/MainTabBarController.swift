@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol MainTabBarControllerDelegate: class {
     func minimiseTrackDetailController()
@@ -26,11 +27,16 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 0.9617310166, green: 0.2459604144, blue: 0.3703291714, alpha: 1)
         setupTrackDetailView()
         searchVC.tabBarDelegate = self
-        
+        var library = Library()
+        library.tabBarDelegate = self
+        let hostVC = UIHostingController(rootView: library)
+        hostVC.tabBarItem.image = #imageLiteral(resourceName: "Library - Selected")
+        hostVC.tabBarItem.title = "Library"
 
         viewControllers = [
-            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Search - Selected"), title: "Search"),
-            generateViewController(rootViewController: ViewController(), image: #imageLiteral(resourceName: "Library - Selected"), title: "Library")
+            hostVC,
+            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "Search - Selected"), title: "Search")
+            
 
         ]
     }

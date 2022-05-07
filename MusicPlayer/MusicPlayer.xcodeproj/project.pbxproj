@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		E7361A382821312B0044F66E /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7361A372821312B0044F66E /* TrackDetailView.xib */; };
 		E7361A3B282131480044F66E /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361A3A282131480044F66E /* TrackDetailView.swift */; };
+		E755B4F328269D1D00AB2F10 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = E755B4F228269D1D00AB2F10 /* Library.swift */; };
+		E755B4F72826C07A00AB2F10 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E755B4F62826C07A00AB2F10 /* UserDefaults.swift */; };
+		E755B4FB2826C68300AB2F10 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = E755B4FA2826C68300AB2F10 /* URLImageStore */; };
+		E755B4FD2826C68300AB2F10 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E755B4FC2826C68300AB2F10 /* URLImage */; };
 		E7A876492821696B0037A3A1 /* CMTime+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A876482821696B0037A3A1 /* CMTime+extention.swift */; };
 		E7A8764C28219D170037A3A1 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8764B28219D170037A3A1 /* Nib.swift */; };
 		E7CE91372818674D00877850 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE91362818674D00877850 /* NetworkService.swift */; };
@@ -40,6 +44,8 @@
 /* Begin PBXFileReference section */
 		E7361A372821312B0044F66E /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		E7361A3A282131480044F66E /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
+		E755B4F228269D1D00AB2F10 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		E755B4F62826C07A00AB2F10 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E7A876482821696B0037A3A1 /* CMTime+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+extention.swift"; sourceTree = "<group>"; };
 		E7A8764B28219D170037A3A1 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		E7CE91362818674D00877850 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -72,8 +78,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E755B4FB2826C68300AB2F10 /* URLImageStore in Frameworks */,
 				E7D1E501281F01A80070F072 /* SDWebImage in Frameworks */,
 				E7D1E503281F01A80070F072 /* SDWebImageMapKit in Frameworks */,
+				E755B4FD2826C68300AB2F10 /* URLImage in Frameworks */,
 				E7D22E37281468140066D86C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +139,7 @@
 			children = (
 				E7D1E4F7281EF5290070F072 /* TrackCell.xib */,
 				E7D1E4FA281EF5480070F072 /* TrackCell.swift */,
+				E755B4F62826C07A00AB2F10 /* UserDefaults.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -174,6 +183,7 @@
 				E7D22E1C281420DB0066D86C /* SceneDelegate.swift */,
 				E7D1E4D9281ECB990070F072 /* Services */,
 				E7D22E2F281430A80066D86C /* MainTabBarController.swift */,
+				E755B4F228269D1D00AB2F10 /* Library.swift */,
 				E7D1E4C9281ECAEB0070F072 /* Search */,
 				E7D22E322814337D0066D86C /* SearchMusicViewController.swift */,
 				E7D22E1E281420DB0066D86C /* ViewController.swift */,
@@ -206,6 +216,8 @@
 				E7D22E36281468140066D86C /* Alamofire */,
 				E7D1E500281F01A80070F072 /* SDWebImage */,
 				E7D1E502281F01A80070F072 /* SDWebImageMapKit */,
+				E755B4FA2826C68300AB2F10 /* URLImageStore */,
+				E755B4FC2826C68300AB2F10 /* URLImage */,
 			);
 			productName = MusicPlayer;
 			productReference = E7D22E17281420DB0066D86C /* MusicPlayer.app */;
@@ -237,6 +249,7 @@
 			packageReferences = (
 				E7D22E35281468140066D86C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E7D1E4FF281F01A80070F072 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E755B4F92826C68300AB2F10 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = E7D22E18281420DB0066D86C /* Products */;
 			projectDirPath = "";
@@ -273,6 +286,7 @@
 				E7D22E3A28146D3D0066D86C /* SearchResponse.swift in Sources */,
 				E7D1E4E9281ECCBF0070F072 /* SearchInteractor.swift in Sources */,
 				E7D22E1B281420DB0066D86C /* AppDelegate.swift in Sources */,
+				E755B4F72826C07A00AB2F10 /* UserDefaults.swift in Sources */,
 				E7D1E507281F09910070F072 /* FooterView.swift in Sources */,
 				E7D1E4FB281EF5480070F072 /* TrackCell.swift in Sources */,
 				E7A876492821696B0037A3A1 /* CMTime+extention.swift in Sources */,
@@ -285,6 +299,7 @@
 				E7D22E1D281420DB0066D86C /* SceneDelegate.swift in Sources */,
 				E7D1E4E4281ECCBF0070F072 /* SearchPresenter.swift in Sources */,
 				E7CE91372818674D00877850 /* NetworkService.swift in Sources */,
+				E755B4F328269D1D00AB2F10 /* Library.swift in Sources */,
 				E7361A3B282131480044F66E /* TrackDetailView.swift in Sources */,
 				E7D1E4F2281ED1AA0070F072 /* UIViewController+Storyboard.swift in Sources */,
 			);
@@ -490,6 +505,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E755B4F92826C68300AB2F10 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		E7D1E4FF281F01A80070F072 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -509,6 +532,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E755B4FA2826C68300AB2F10 /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E755B4F92826C68300AB2F10 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
+		};
+		E755B4FC2826C68300AB2F10 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E755B4F92826C68300AB2F10 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
 		E7D1E500281F01A80070F072 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7D1E4FF281F01A80070F072 /* XCRemoteSwiftPackageReference "SDWebImage" */;
