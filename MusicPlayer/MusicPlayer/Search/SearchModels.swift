@@ -10,37 +10,37 @@ import UIKit
 import SwiftUI
 
 enum Search {
-   
-  enum Model {
-    struct Request {
-      enum RequestType {
-        case getTracks(searchTerm: String)
-      }
+
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case getTracks(searchTerm: String)
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentTracks(searchResponse: SearchResponse?)
+                case presentFooterView
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case displayTracks(searViewModet: SearchViewModel)
+                case displayFooterView
+            }
+        }
     }
-    struct Response {
-      enum ResponseType {
-        case presentTracks(searchResponse: SearchResponse?)
-        case presentFooterView
-      }
-    }
-    struct ViewModel {
-      enum ViewModelData {
-        case displayTracks(searViewModet: SearchViewModel)
-        case displayFooterView
-      }
-    }
-  }
 }
 
 class SearchViewModel: NSObject, NSCoding {
     func encode(with coder: NSCoder) {
         coder.encode(cells, forKey: "cells")
     }
-    
+
     required init?(coder: NSCoder) {
         cells = coder.decodeObject(forKey: "cells") as? [SearchViewModel.Cell] ?? []
     }
-    
+
     @objc(_TtCC11MusicPlayer15SearchViewModel4Cell)class Cell: NSObject, NSCoding, Identifiable {
         func encode(with coder: NSCoder) {
             coder.encode(iconUrlString, forKey: "iconUrlString")
@@ -49,7 +49,7 @@ class SearchViewModel: NSObject, NSCoding {
             coder.encode(artistName, forKey: "artistName")
             coder.encode(previewUrl, forKey: "previewUrl")
         }
-        
+
         required init?(coder: NSCoder) {
             iconUrlString = coder.decodeObject(forKey: "iconUrlString") as? String? ?? ""
             trackName = coder.decodeObject(forKey: "trackName") as? String ?? ""
@@ -57,7 +57,7 @@ class SearchViewModel: NSObject, NSCoding {
             artistName = coder.decodeObject(forKey: "artistName") as? String ?? ""
             previewUrl = coder.decodeObject(forKey: "previewUrl") as? String? ?? ""
         }
-        
+
         var id = UUID()
         var iconUrlString: String?
         var trackName: String
@@ -65,21 +65,21 @@ class SearchViewModel: NSObject, NSCoding {
         var artistName: String
         var previewUrl: String?
         init(iconUrlString: String?,
-             trackName: String,
-             collectionName: String,
-             artistName: String,
-             previewUrl: String?) {
+            trackName: String,
+            collectionName: String,
+            artistName: String,
+            previewUrl: String?) {
             self.iconUrlString = iconUrlString
             self.trackName = trackName
             self.collectionName = collectionName
             self.artistName = artistName
             self.previewUrl = previewUrl
-            
+
         }
     }
     init(cells: [Cell]) {
         self.cells = cells
     }
-    
+
     let cells: [Cell]
 }

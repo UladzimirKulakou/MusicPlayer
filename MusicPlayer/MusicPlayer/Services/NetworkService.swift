@@ -34,9 +34,6 @@ class NetworkService {
                 complition(nil)
             }
 
-//                let someString = String(data: data, encoding: .utf8)
-//                print(someString ?? "")
-
         }
     }
 }
