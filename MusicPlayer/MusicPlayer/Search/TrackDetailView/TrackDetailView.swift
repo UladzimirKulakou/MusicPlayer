@@ -17,7 +17,7 @@ protocol TrackMovingDelegate {
     func moveForwardForNextTrack() -> SearchViewModel.Cell?
 }
 
-    
+
 class TrackDetailView: UIView {
     @IBOutlet weak var miniTrackView: UIView!
     @IBOutlet weak var miniGoForwardButton: UIButton!
@@ -25,7 +25,7 @@ class TrackDetailView: UIView {
     @IBOutlet weak var miniTrackImage: UIImageView!
     @IBOutlet weak var miniTrackTitleLabel: UILabel!
     @IBOutlet weak var miniPlayPauseButton: UIButton!
-    
+
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
 
@@ -43,12 +43,12 @@ class TrackDetailView: UIView {
         avPlayer.automaticallyWaitsToMinimizeStalling = false
         return avPlayer
     }()
-    
+
     var delegate: TrackMovingDelegate?
     weak var tabBarDelegate: MainTabBarControllerDelegate?
-    
-    
-    
+
+
+
     // MARK: - awakeFromNib
 
     override func awakeFromNib() {
@@ -60,7 +60,7 @@ class TrackDetailView: UIView {
         setupGestures()
     }
     // MARK: - Setup
-    
+
     func set(viewModel: SearchViewModel.Cell) {
         miniTrackTitleLabel.text = viewModel.trackName
         trackTitleLabel.text = viewModel.trackName
@@ -75,24 +75,24 @@ class TrackDetailView: UIView {
         miniTrackImage.sd_setImage(with: url, completed: nil)
         trackImageView.sd_setImage(with: url, completed: nil)
     }
-    
+
     private func setupGestures() {
         miniTrackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximized)))
         miniTrackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
-        
+
     }
-    
+
     // MARK: - Maximizing and minimizing gestures
-    
+
     @objc private func handleTapMaximized() {
         self.tabBarDelegate?.maximizeTrackDetailController(viewModel: nil)
     }
-    
+
     @objc private func handlePan(gesture: UIPanGestureRecognizer) {
 
         switch gesture.state {
-        
+
         case .began:
             print("began")
         case .changed:
@@ -103,7 +103,7 @@ class TrackDetailView: UIView {
             print("began")
         }
     }
-    
+
     private func handlePanChanged(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.superview)
         self.transform = CGAffineTransform(translationX: 0, y: translation.y)
@@ -111,11 +111,11 @@ class TrackDetailView: UIView {
         self.miniTrackView.alpha = newAlpha < 0 ? 0 : newAlpha
         self.maximaizedStackView.alpha = -translation.y / 200
     }
-    
+
     private func handlePanEnded(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.superview)
         let velocity = gesture.velocity(in: self.superview)
-        
+
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.transform = .identity
             if translation.y < -200 || velocity.y < -500 {
@@ -126,13 +126,13 @@ class TrackDetailView: UIView {
             }
         }, completion: nil)
     }
-    
+
     @objc private func handleDismissalPan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
-       
-       
+
+
         case .changed:
-            
+
             let translation = gesture.translation(in: self.superview)
             maximaizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
         case .ended:
@@ -143,7 +143,7 @@ class TrackDetailView: UIView {
                     self.tabBarDelegate?.minimiseTrackDetailController()
                 }
             }, completion: nil)
-        
+
         @unknown default:
             print("default")
         }
@@ -158,12 +158,12 @@ class TrackDetailView: UIView {
 
     }
     // MARK: - Animations
-    
+
     private func enlargeTrackImageView() {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.trackImageView.transform = .identity
         }, completion: nil)
-        
+
     }
 
     private func reduceTrackImageView() {
@@ -171,10 +171,10 @@ class TrackDetailView: UIView {
             let scale: CGFloat = 0.8
             self.trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         }, completion: nil)
-        
+
     }
     // MARK: - Time Setup
-    
+
     private func monitorStartTime() {
         let time = CMTimeMake(value: 1, timescale: 3)
         let times = [NSValue(time: time)]
@@ -185,34 +185,33 @@ class TrackDetailView: UIView {
     deinit {
         print("Track detail view memory being reclaimed")
     }
-    
+
     private func obsorvePlayerCurrentTime() {
         let interval = CMTimeMake(value: 1, timescale: 2)
         player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] (time) in
             self?.currentTimeLabel.text = time.toDisplayString()
-            
+
             let durationTime = self?.player.currentItem?.duration
             let currentDurationText = ((durationTime ?? CMTimeMake(value: 1, timescale: 1)) - time).toDisplayString()
             self?.durationLabel.text = "-\(currentDurationText)"
             self?.updateCurrentTimeSlider()
-            
+
         }
     }
-    
+
     private func updateCurrentTimeSlider() {
         let currentTimeSeconds = CMTimeGetSeconds(player.currentTime())
         let durationSeconds = CMTimeGetSeconds(player.currentItem?.duration ?? CMTimeMake(value: 1, timescale: 1))
         let percentage = currentTimeSeconds / durationSeconds
         self.currentTimeSlider.value = Float(percentage)
     }
- 
-    
+
+
     // MARK: - @IBActions
-    
+
     @IBAction func dragDownButtonTapped(_ sender: Any) {
-        
+
         self.tabBarDelegate?.minimiseTrackDetailController()
-//        self.removeFromSuperview()
     }
     @IBAction func handelCurrentTimerSlider(_ sender: Any) {
         let percentage = currentTimeSlider.value
@@ -223,7 +222,7 @@ class TrackDetailView: UIView {
         player.seek(to: seekTime)
     }
     @IBAction func handelVolumeSlider(_ sender: Any) {
-        
+
         player.volume = volumeSlider.value
     }
     @IBAction func previosTrack(_ sender: Any) {
@@ -231,7 +230,7 @@ class TrackDetailView: UIView {
         guard let cellInfo = cellViewModel else { return }
         self.set(viewModel: cellInfo)
     }
-    
+
     @IBAction func nextTrack(_ sender: Any) {
         let cellViewModel = delegate?.moveForwardForNextTrack()
         guard let cellInfo = cellViewModel else { return }

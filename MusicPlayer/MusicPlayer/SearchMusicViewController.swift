@@ -10,7 +10,7 @@ import Alamofire
 
 
 class SearchMusicViewController: UITableViewController {
-     
+
     var networkService = NetworkService()
 
     private var timer: Timer?
@@ -51,9 +51,9 @@ class SearchMusicViewController: UITableViewController {
 }
 
 extension SearchMusicViewController: UISearchBarDelegate {
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         print(searchText)
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
@@ -61,10 +61,10 @@ extension SearchMusicViewController: UISearchBarDelegate {
                 self?.tracks = searchResults?.results ?? []
                 self?.tableView.reloadData()
             }
-            
-            
+
+
         })
-       
+
     }
 
 
